@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloud-devops-deployment
+  namespace: ivolve
+  labels:
+    app: cloud-devops-app2
+    framework: flask
+    language: python
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: cloud-devops-app2
+  template:
+    metadata:
+      labels:
+        app: cloud-devops-app2
+    spec:
+      containers:
+        - name: cloud-devops-container
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+          image: redaeid/ivolvefinalproject:74
+          ports:
+            - containerPort: 5000
+        

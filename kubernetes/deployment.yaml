@@ -21,11 +21,11 @@ spec:
         - name: cloud-devops-container
           resources:
             limits:
+              memory: "1024Mi"
+              cpu: "1000m"
+            requests:
               memory: "512Mi"
               cpu: "500m"
-            requests:
-              memory: "256Mi"
-              cpu: "250m"
           image: redaeid/ivolvefinalproject:78
           ports:
             - containerPort: 5000
